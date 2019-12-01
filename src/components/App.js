@@ -11,7 +11,7 @@ import { Stats } from './stats/Stats';
 import { DeadModal } from "./modals/DeadModal";
 
 // Difficulty
-import { difficulty } from "../assets/difficulty/difficulty";
+import { difficulty } from "../utils/difficulty";
 
 // Styling
 import '../assets/css/App.css';
