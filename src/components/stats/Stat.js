@@ -23,32 +23,32 @@ export const Stat = ({ type, statLeft, statRight, statMiddleTop, statMiddleBotto
     if(type === "score") {
         content = (
             <div className="scoreLevel">
-                <p className="lead">{statMiddleTop}</p>
-                <h4>{statMiddleBottom}</h4>
+                <p className="lead">{ statMiddleTop }</p>
+                <h4>{ statMiddleBottom }</h4>
             </div>
         )
     }
     else {
         content = (
-            <img src={heartIcon} alt="HealthIcon" height="24px"/>
+            <img src={ heartIcon } alt="HealthIcon" height="24px"/>
         )
     }
 
     return (
         <div className="annotations">
-            {/* Score text */}
-            <div className={`${type}Text mb-2`}>
-                {/* StatText */}
-                <StatText content={statLeft} position="Left"/>
+            {/* Stat texts */}
+            <div className={`${ type }Text mb-2`}>
+                {/* Stat left */}
+                <StatText content={ statLeft } position="Left"/>
 
                 {content}
 
-                {/* StatText */}
-                <StatText content={statRight} position="Right"/>
+                {/* Stat right */}
+                <StatText content={ statRight } position="Right"/>
             </div>
 
-            {/* StatBar for score */}
-            <StatBar type={type} style={maskStyle}/>
+            {/* StatBar */}
+            <StatBar type={ type } style={ maskStyle }/>
         </div>
     );
 };

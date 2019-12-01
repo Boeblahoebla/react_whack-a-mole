@@ -78,17 +78,17 @@ class Mole extends Component {
         return (
             <div className="mole">
                 <Spritesheet
-                    steps={80}
-                    loop={true}
-                    autoplay={true}
-                    widthFrame={192}
-                    heightFrame={154}
-                    timeout={timeout}
-                    image={gameSprites}
+                    steps={ 80 }
+                    loop={ true }
+                    autoplay={ true }
+                    widthFrame={ 192 }
+                    heightFrame={ 154 }
+                    timeout={ timeout }
+                    image={ gameSprites }
                     className="moleSprite"
-                    fps={moleTypes[moleIndex].fps}
-                    endAt={moleTypes[moleIndex].endIndex}
-                    startAt={moleTypes[moleIndex].startIndex}
+                    fps={ moleTypes[moleIndex].fps }
+                    endAt={ moleTypes[moleIndex].endIndex }
+                    startAt={ moleTypes[moleIndex].startIndex }
 
                     // Action handlers
                     onLoopComplete={ () => { this.refreshMole() }}
@@ -125,7 +125,7 @@ class Mole extends Component {
     // Method to spawn a random new mole after x random seconds
     refreshMole = () => {
         // Fetch moleTypes & spriteInstance from the state
-        const { moleTypes, spriteInstance} = this.state;
+        const { moleTypes, spriteInstance } = this.state;
 
         // Pause the spriteSheet loop
         spriteInstance.pause();
@@ -160,7 +160,7 @@ class Mole extends Component {
         const { spriteInstance, moleHitTypes, moleIndex, punch1, punch2, punch3, powerUp } = this.state;
 
         // Fetch stat changers from the props
-        const {incScore, incHealth} = this.props;
+        const { incScore, incHealth } = this.props;
 
         if (this.state.active) {
             // Pause the spriteSheet loop
