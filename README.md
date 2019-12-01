@@ -5,7 +5,7 @@ Whack a mole recreated in React!
 
 *Assignment is found in the folder called **assignment**.*
 
-![Holy Whack-a-Moley screenshot](https://imgur.com/53N23gd)
+![Holy Whack-a-Moley screenshot](https://i.imgur.com/53N23gd.png)
 
 ## How to play
 The game contains 12 holes. After x random seconds a mole appears. It's up to the player to whack the mole before it crawls back in.
