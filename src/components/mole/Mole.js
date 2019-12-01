@@ -70,7 +70,7 @@ class Mole extends Component {
 
     render() {
 
-        // Fetch items from the state
+        // Fetch items from the state & props
         const { moleTypes, moleIndex, timeout, explosion, scratch, moleHit, phase } = this.state;
         const { damAttack1, damAttack2, damageBomber } = this.props.difficulty;
         const { dead } = this.props;
@@ -78,7 +78,6 @@ class Mole extends Component {
         return (
             <div className="mole">
                 <Spritesheet
-                    muted="muted"
                     steps={80}
                     loop={true}
                     autoplay={true}
@@ -119,24 +118,22 @@ class Mole extends Component {
     // Method to deal damage and/or deactivate the mole if needed
     dealDamage = (amount, deactivateFlag) => {
         this.props.dealDamage(amount);
-
-        // Deactivate the mole so it cant be hit anymore
         deactivateFlag && this.setState({ active: false });
     };
 
 
     // Method to spawn a random new mole after x random seconds
     refreshMole = () => {
-        // Fetch moleTypes & sprite from the state
+        // Fetch moleTypes & spriteInstance from the state
         const { moleTypes, spriteInstance} = this.state;
 
         // Pause the spriteSheet loop
         spriteInstance.pause();
 
-        // Generate active mole
+        // Generate a new random mole
         const newMole = this.generateRandomMole();
 
-        // Toggle activity of mole, set newMole index,
+        // Toggle activity of mole, set newMole index, enable the mole being Whacked,
         // refresh the mole & start playing after x seconds
         this.setState({
             active: false,
@@ -169,12 +166,13 @@ class Mole extends Component {
             // Pause the spriteSheet loop
             spriteInstance.pause();
 
-            // Deactivate the mole & increment the score and/or health
+            // Deactivate the mole, set the mole to Whacked &
+            // increment the score and/or health
             this.setState({
                 active: false,
                 moleHit: true
             }, () => {
-                // Increment the score
+                // Increment the score & play the sound effects
                 if (moleIndex === 0 || moleIndex === 1) { punch1.play(); incScore(30); }
                 else if (moleIndex === 2) { punch2.play(); powerUp.play(); incScore(5); incHealth(10); }
                 else { punch3.play(); incScore(50); }
@@ -200,6 +198,7 @@ class Mole extends Component {
             minSpeedHealer, maxSpeedBomber, minSpeedBomber
         } = this.props.difficulty;
 
+        // Determine the speed at which the mole animation should play
         if (moleType === 'benign') {
             return (Math.floor(Math.random() * (maxSpeedBenign - minSpeedBenign + 1)) + minSpeedBenign);
         } else if (moleType === 'attacker') {

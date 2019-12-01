@@ -1,7 +1,7 @@
 // 0 = benign
 // 1 = attacker
-// 2 = bomber
-// 3 = healer
+// 2 = healer
+// 3 = bomber
 
 export const difficulty = [
     {

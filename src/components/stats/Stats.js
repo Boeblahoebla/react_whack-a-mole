@@ -5,6 +5,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Components
+import { StatBar } from "./StatBar";
+import { StatAnnotation } from "./StatAnnotation";
+
 // Media
 import heartIcon from '../../assets/img/heart-resized.png'
 
@@ -24,49 +28,38 @@ export const Stats = ({ score, scoreToReach, levelMask, health, level, totalScor
             <div className="annotations">
                 {/* Score text */}
                 <div className="scoreText mb-2">
-                    <div className="statAnnotation">
-                        <h5 className="alignLeft">{score}</h5>
-                    </div>
+                    {/* StatAnnotation */}
+                    <StatAnnotation content={score} position="Left"/>
 
                     <div className="scoreLevel">
                         <p className="lead">{level}</p>
                         <h4>{totalScore}</h4>
                     </div>
 
-                    <div className="statAnnotation">
-                        <h5 className="alignRight">{scoreToReach}</h5>
-                    </div>
+                    {/* StatAnnotation */}
+                    <StatAnnotation content={scoreToReach} position="Right"/>
                 </div>
 
-                {/* Score bar */}
-                <div className="score mb-4">
-                    <div className="scoreAmount" style={levelMaskStyle}>
-                        &nbsp;
-                    </div>
-                </div>
+                {/* StatBar for score */}
+                <StatBar type="score" style={levelMaskStyle}/>
+
             </div>
 
             {/* Health */}
             <div className="annotations">
                 {/* Health text */}
                 <div className="healthText mb-2">
-                    <div className="statAnnotation">
-                        <h5>0</h5>
-                    </div>
+                    {/* StatAnnotation */}
+                    <StatAnnotation content="0" position="Left"/>
 
                     <img src={heartIcon} alt="HealthIcon" height="24px"/>
 
-                    <div className="statAnnotation">
-                        <h5 className="alignRight">{health}</h5>
-                    </div>
+                    {/* StatAnnotation */}
+                    <StatAnnotation content={health} position="Right"/>
                 </div>
 
-                {/* Health bar */}
-                <div className="health mb-4">
-                    <div className="healthAmount" style={healthMaskStyle}>
-                        &nbsp;
-                    </div>
-                </div>
+                {/* StatBar for health */}
+                <StatBar type="health" style={ healthMaskStyle }/>
             </div>
         </div>
     );
