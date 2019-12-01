@@ -1,0 +1,150 @@
+// Imports
+//////////
+
+// Base dependencies
+import React, {Component} from 'react';
+import UIfx from 'uifx';
+
+// Components
+import Mole from './mole/Mole';
+import { Stats } from './stats/Stats';
+import { DeadModal } from "./modals/DeadModal";
+
+// Difficulty
+import { difficulty } from "../assets/difficulty/difficulty";
+
+// Styling
+import '../assets/css/App.css';
+
+// Media
+import hammer from '../assets/img/WAM_Hammer.png';
+import boooooo from '../assets/audio/boooooo.mp3';
+import whistle from '../assets/audio/whistle.mp3';
+import cheerzShort from '../assets/audio/cheerz-short.mp3';
+
+
+// App component
+////////////////
+
+class App extends Component {
+
+    // Component state
+    state = {
+        scoreToReach: 1000,
+        score: 0,
+        totalScore: 0,
+        levelMask: 100,
+        health: 100,
+        level: 0,
+        finished: false,
+        dead: false,
+        boooooo: new UIfx(boooooo, {volume: 1}),
+        whistle: new UIfx(whistle, {volume: 0.3}),
+        cheerzShort : new UIfx(cheerzShort, {volume: 0.5})
+    };
+
+    render() {
+        // Fetch the score & health from the state
+        const { healthMask, level, levelMask, score, scoreToReach, health, totalScore, finished, dead } = this.state;
+
+        // Set game difficulty according to current level
+        const gameDifficulty = difficulty[level];
+
+        // Generate 12 moles
+        const moles = [];
+        for(let i = 0; i < 12; i++) {
+            moles.push(
+                <Mole key={i} incScore={this.incScore} incHealth={this.incHealth} dealDamage={this.dealDamage}
+                    difficulty={gameDifficulty} dead={dead} finished={finished}/> )
+        }
+
+        return (
+            <div className="gameBg" style={{cursor: `url(${hammer}), auto`}}>
+
+                {/* The modal for when you're dead */}
+                <DeadModal dead={dead} />
+
+                {/* The modal for when you finished the game */}
+
+                {/* Score */}
+                <Stats score={score} scoreToReach={scoreToReach} levelMask={levelMask}
+                    health={health} healthMask={healthMask} level={level} totalScore={totalScore} />
+
+                {/* Game */}
+                <div className="game row m-auto"> {moles} </div>
+            </div>
+        );
+    }
+
+
+    // Handler methods
+    //////////////////
+
+    // Method to inc the score by an amount
+    incScore = scoreIncrement => {
+        // Fetch score & scoreToReact from the state
+        const { score, scoreToReach, level, totalScore, cheerzShort, whistle } = this.state;
+
+        // Calculate the new score & the levelMask
+        let newScore = score + scoreIncrement;
+        let newTotalScore  = totalScore + scoreIncrement;
+        let newLevelMask = Math.floor(((scoreToReach - newScore) / scoreToReach) * 100);
+
+        // If score reached to advance a level
+        if(newScore >= scoreToReach) {
+            const newLevel = level + 1;
+            newScore = 0;
+            // Update the score & levelMask
+            this.setState({
+                score: newScore,
+                levelMask: 100,
+                level: newLevel,
+                totalScore: newTotalScore,
+                health: 100,
+            },() => { whistle.play(); cheerzShort.play()})
+        // If not, just update the score
+        } else {
+            this.setState({
+                score: newScore,
+                totalScore: newTotalScore,
+                levelMask: newLevelMask,
+            })
+        }
+    };
+
+
+    // Method to increase the health by an amount
+    incHealth = healthIncrease => {
+        // Fetch the healthMask from the state
+        const { health } = this.state;
+
+        let newHealth;
+        // Increase healthMask to a value of max 100
+        if((health + healthIncrease) > 100) { newHealth = 100; }
+        else { newHealth = health + healthIncrease; }
+
+        // Update the health
+        this.setState({ health: newHealth })
+    };
+
+
+    // Method to deal damage
+    dealDamage = amount => {
+        // Fetch the health from the state
+        const { health, boooooo } = this.state;
+
+        // Calculate new health
+        let newHealth = health - amount;
+
+        // BAM you're dead
+        if(newHealth <= 0) { this.setState({ dead: true, health: 0 }, () => boooooo.play() ) }
+        // OR you're just hit
+        else { this.setState({ health: newHealth }); }
+    }
+}
+
+
+// Export
+/////////
+
+export default App;

@@ -1,0 +1,23 @@
+Benign
+1 - 10
+
+Attacker
+18 - 38
+
+Healer
+70 - 80
+
+bomber
+46 - 60
+
+benign hit
+11 - 17
+
+attacker hit
+11 - 77
+
+healer hit
+61 - 69
+
+bomber hit
+39 - 45
