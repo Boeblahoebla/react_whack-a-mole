@@ -6,11 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import { StatBar } from "./StatBar";
-import { StatAnnotation } from "./StatAnnotation";
-
-// Media
-import heartIcon from '../../assets/img/heart-resized.png'
+import { Stat } from "./Stat";
 
 
 // Stats component
@@ -24,43 +20,13 @@ export const Stats = ({ score, scoreToReach, levelMask, health, level, totalScor
 
     return (
         <div className="stats">
-            {/* Score */}
-            <div className="annotations">
-                {/* Score text */}
-                <div className="scoreText mb-2">
-                    {/* StatAnnotation */}
-                    <StatAnnotation content={score} position="Left"/>
+            {/* Stat Score */}
+            <Stat statLeft={ score } statRight={ scoreToReach } statMiddleTop={ level }
+                  statMiddleBottom={ totalScore } maskStyle={ levelMaskStyle } type="score" />
 
-                    <div className="scoreLevel">
-                        <p className="lead">{level}</p>
-                        <h4>{totalScore}</h4>
-                    </div>
-
-                    {/* StatAnnotation */}
-                    <StatAnnotation content={scoreToReach} position="Right"/>
-                </div>
-
-                {/* StatBar for score */}
-                <StatBar type="score" style={levelMaskStyle}/>
-
-            </div>
-
-            {/* Health */}
-            <div className="annotations">
-                {/* Health text */}
-                <div className="healthText mb-2">
-                    {/* StatAnnotation */}
-                    <StatAnnotation content="0" position="Left"/>
-
-                    <img src={heartIcon} alt="HealthIcon" height="24px"/>
-
-                    {/* StatAnnotation */}
-                    <StatAnnotation content={health} position="Right"/>
-                </div>
-
-                {/* StatBar for health */}
-                <StatBar type="health" style={ healthMaskStyle }/>
-            </div>
+            {/* Stat Health */}
+            <Stat statLeft={ 0 } statRight={ health }
+                  maskStyle={ healthMaskStyle } type="health" />
         </div>
     );
 };

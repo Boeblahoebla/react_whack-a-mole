@@ -2,7 +2,7 @@
 //////////
 
 // Base dependencies
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import UIfx from 'uifx';
 
 // Components
@@ -38,40 +38,41 @@ class App extends Component {
         level: 0,
         finished: false,
         dead: false,
-        boooooo: new UIfx(boooooo, {volume: 1}),
-        whistle: new UIfx(whistle, {volume: 0.3}),
-        cheerzShort : new UIfx(cheerzShort, {volume: 0.5})
+        boooooo: new UIfx(boooooo, { volume: 1 }),
+        whistle: new UIfx(whistle, { volume: 0.3 }),
+        cheerzShort : new UIfx(cheerzShort, { volume: 0.5 })
     };
 
     render() {
-        // Fetch the score & health from the state
+        // Fetch the items from the state
         const { healthMask, level, levelMask, score, scoreToReach, health, totalScore, finished, dead } = this.state;
 
         // Set game difficulty according to current level
         const gameDifficulty = difficulty[level];
 
-        // Generate 12 moles
+        // Generate 12 moles to whack
         const moles = [];
         for(let i = 0; i < 12; i++) {
             moles.push(
-                <Mole key={i} incScore={this.incScore} incHealth={this.incHealth} dealDamage={this.dealDamage}
-                    difficulty={gameDifficulty} dead={dead} finished={finished}/> )
+                <Mole key={ i } incScore={ this.incScore } incHealth={ this.incHealth } dealDamage={ this.dealDamage }
+                    difficulty={ gameDifficulty } dead={ dead } finished={ finished }/> )
         }
 
         return (
-            <div className="gameBg" style={{cursor: `url(${hammer}), auto`}}>
+            <div className="gameBg" style={{ cursor: `url(${hammer}), auto` }}>
 
                 {/* The modal for when you're dead */}
-                <DeadModal dead={dead} />
+                <DeadModal dead={ dead } />
 
                 {/* The modal for when you finished the game */}
 
                 {/* Score */}
-                <Stats score={score} scoreToReach={scoreToReach} levelMask={levelMask}
-                    health={health} healthMask={healthMask} level={level} totalScore={totalScore} />
+                <Stats score={ score } scoreToReach={ scoreToReach } levelMask={ levelMask }
+                    health={ health } healthMask={ healthMask } level={ level + 1 } totalScore={ totalScore } />
 
                 {/* Game */}
-                <div className="game row m-auto"> {moles} </div>
+                <div className="game row m-auto"> { moles } </div>
+
             </div>
         );
     }
@@ -82,7 +83,7 @@ class App extends Component {
 
     // Method to inc the score by an amount
     incScore = scoreIncrement => {
-        // Fetch score & scoreToReact from the state
+        // Fetch score params, level & sound effects from the state
         const { score, scoreToReach, level, totalScore, cheerzShort, whistle } = this.state;
 
         // Calculate the new score & the levelMask
@@ -90,18 +91,20 @@ class App extends Component {
         let newTotalScore  = totalScore + scoreIncrement;
         let newLevelMask = Math.floor(((scoreToReach - newScore) / scoreToReach) * 100);
 
-        // If score reached to advance a level
+        // If score reached to advance a level:
+        // update the score, increment level & reset health
         if(newScore >= scoreToReach) {
             const newLevel = level + 1;
             newScore = 0;
-            // Update the score & levelMask
+
+            // Update the score params, health & level progression
             this.setState({
                 score: newScore,
                 levelMask: 100,
                 level: newLevel,
                 totalScore: newTotalScore,
                 health: 100,
-            },() => { whistle.play(); cheerzShort.play()})
+            },() => { whistle.play(); cheerzShort.play() })
         // If not, just update the score
         } else {
             this.setState({
@@ -115,11 +118,11 @@ class App extends Component {
 
     // Method to increase the health by an amount
     incHealth = healthIncrease => {
-        // Fetch the healthMask from the state
+        // Fetch the health from the state
         const { health } = this.state;
 
+        // Increase health to a value of max 100
         let newHealth;
-        // Increase healthMask to a value of max 100
         if((health + healthIncrease) > 100) { newHealth = 100; }
         else { newHealth = health + healthIncrease; }
 
@@ -130,7 +133,7 @@ class App extends Component {
 
     // Method to deal damage
     dealDamage = amount => {
-        // Fetch the health from the state
+        // Fetch the health & sound effect from the state
         const { health, boooooo } = this.state;
 
         // Calculate new health
@@ -138,7 +141,7 @@ class App extends Component {
 
         // BAM you're dead
         if(newHealth <= 0) { this.setState({ dead: true, health: 0 }, () => boooooo.play() ) }
-        // OR you're just hit
+        // Or you're just hit
         else { this.setState({ health: newHealth }); }
     }
 }

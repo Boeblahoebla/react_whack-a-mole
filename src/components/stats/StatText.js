@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 // Stat annotation component
 ////////////////////////////
 
-export const StatAnnotation = ({position, content}) => {
+export const StatText = ({position, content}) => {
     return (
         <div className="statAnnotation">
             <h5 className={`align${position}`}>{content}</h5>
@@ -18,7 +18,8 @@ export const StatAnnotation = ({position, content}) => {
 };
 
 
-StatAnnotation.propTypes = {
+// Prop types for the component
+StatText.propTypes = {
     position: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
 };
