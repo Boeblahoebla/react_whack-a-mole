@@ -62,7 +62,7 @@ class App extends Component {
             <div className="gameBg" style={{ cursor: `url(${hammer}), auto` }}>
 
                 {/* The modal for when you're dead */}
-                <DeadModal dead={ dead } />
+                <DeadModal dead={ dead }  resetGame={ this.resetGame }/>
 
                 {/* The modal for when you finished the game */}
 
@@ -143,6 +143,20 @@ class App extends Component {
         if(newHealth <= 0) { this.setState({ dead: true, health: 0 }, () => boooooo.play() ) }
         // Or you're just hit
         else { this.setState({ health: newHealth }); }
+    };
+
+
+    // Method to reset the game
+    resetGame = () => {
+        this.setState({
+            score: 0,
+            totalScore: 0,
+            levelMask: 100,
+            health: 100,
+            level: 0,
+            finished: false,
+            dead: false,
+        })
     }
 }
 

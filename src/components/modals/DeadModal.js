@@ -8,7 +8,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // Dead Modal
 /////////////
 
-export const DeadModal = ({dead}) => {
+export const DeadModal = ({ dead, resetGame }) => {
 
     // State handling
     const [ open, setOpen ] = useState(false);
@@ -31,7 +31,7 @@ export const DeadModal = ({dead}) => {
 
                 {/* Modal Footer */}
                 <ModalFooter>
-                    <Button color="primary" onClick={() => console.log('clicked yes to try again')}>Yes</Button>{' '}
+                    <Button color="primary" onClick={() => resetGame()}>Yes</Button>{' '}
                     <Button color="secondary" onClick={() => {
                         setOpen(!open);
                         window.open("about:blank", "_self");

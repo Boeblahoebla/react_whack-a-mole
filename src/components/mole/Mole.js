@@ -63,8 +63,12 @@ class Mole extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         // When dead, deactivate the mole & stop the animations
         if ((!this.props.dead && prevProps.dead) || (this.props.finished && !prevProps.finished)) {
+            console.log('entered condition in component did update');
             this.state.spriteInstance.pause();
-            this.setState({ active: false })
+            this.state.spriteInstance.setStartAt(80);
+            this.state.spriteInstance.setEndAt(0);
+            this.state.spriteInstance.setDirection('rewind');
+            this.state.spriteInstance.goToAndPlay(0);
         }
     }
 
@@ -141,12 +145,13 @@ class Mole extends Component {
             moleIndex: newMole,
         }, () => {
             // Set new start & end positions
+            spriteInstance.setDirection('forward');
             spriteInstance.setFps(moleTypes[newMole].fps);
             spriteInstance.setStartAt(moleTypes[newMole].startIndex);
             spriteInstance.setEndAt(moleTypes[newMole].endIndex);
 
             // Start playing after x random seconds
-            setTimeout(function () {
+            setTimeout(() => {
                 spriteInstance.play()
             }, this.generateRandomTimeout());
         });
@@ -174,7 +179,7 @@ class Mole extends Component {
             }, () => {
                 // Increment the score & play the sound effects
                 if (moleIndex === 0 || moleIndex === 1) { punch1.play(); incScore(30); }
-                else if (moleIndex === 2) { punch2.play(); punch1.play(); powerUp.play(); incHealth(10); incScore(5); }
+                else if (moleIndex === 2) { punch1.play(); punch2.play(); powerUp.play(); incHealth(10); incScore(5); }
                 else { punch1.play(); punch3.play(); incScore(50); }
 
                 // Set sprite endpoint to end of hit animation
@@ -222,7 +227,7 @@ class Mole extends Component {
 
 
     // Method to generate a random timeout
-    generateRandomTimeout = () => Math.floor(Math.random() * 35000);
+    generateRandomTimeout = () => Math.floor(Math.random() * 60000);
 }
 
 
