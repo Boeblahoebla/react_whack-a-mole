@@ -38,8 +38,8 @@ class Mole extends Component {
             timeout: this.generateRandomTimeout(),
             phase: new UIfx(phase, { volume: 1.0 }),
             punch1: new UIfx(punch1, { volume: 0.2 }),
-            punch2: new UIfx(punch2, { volume: 0.2 }),
-            punch3: new UIfx(punch3, { volume: 0.2 }),
+            punch2: new UIfx(punch2, { volume: 0.1 }),
+            punch3: new UIfx(punch3, { volume: 0.1 }),
             scratch: new UIfx(scratch, { volume: 0.3 }),
             powerUp: new UIfx(powerup, { volume: 0.3 }),
             explosion: new UIfx(explosion, { volume: 0.3 }),
@@ -174,8 +174,8 @@ class Mole extends Component {
             }, () => {
                 // Increment the score & play the sound effects
                 if (moleIndex === 0 || moleIndex === 1) { punch1.play(); incScore(30); }
-                else if (moleIndex === 2) { punch2.play(); powerUp.play(); incScore(5); incHealth(10); }
-                else { punch3.play(); incScore(50); }
+                else if (moleIndex === 2) { punch2.play(); punch1.play(); powerUp.play(); incHealth(10); incScore(5); }
+                else { punch1.play(); punch3.play(); incScore(50); }
 
                 // Set sprite endpoint to end of hit animation
                 // & play the animation from its starting point
