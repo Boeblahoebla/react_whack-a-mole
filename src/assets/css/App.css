@@ -182,4 +182,14 @@ p.lead {
     font-size: 1.75em;
 }
 
+.deadModalButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deadModalButton {
+    font-size: 1.2em;
+    width: 150px;
+}
+
 

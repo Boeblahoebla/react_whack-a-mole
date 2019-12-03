@@ -10,7 +10,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // Dead Modal
 /////////////
 
-export const DeadModal = ({ dead }) => {
+export const DeadModal = ({ dead, resetGame }) => {
 
     // State handling
     const [ open, setOpen ] = useState(false);
@@ -36,12 +36,15 @@ export const DeadModal = ({ dead }) => {
                     <p className="deadModalPar">
                         You might want to work on your reflexes. Press the button to take you back to the main menu.
                         Maybe you can take another look in the how to play section to figure out your next strategy?
+                        Or.. in the offchance you haven't learned your lesse yet, you can always try again (emphasis on <i>Try</i>)
                     </p>
+
                 </ModalBody>
 
                 {/* Modal Footer */}
-                <ModalFooter>
-                    <Link to="/" className="btn btn-whack">Go back</Link>
+                <ModalFooter className="deadModalButtons">
+                    <button className="btn btn-whack deadModalButton" onClick={resetGame}>Lemme Whack!</button>
+                    <Link to="/" className="btn btn-howtoplay deadModalButton">Go back</Link>
                 </ModalFooter>
             </Modal>
         </div>

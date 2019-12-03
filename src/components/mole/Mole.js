@@ -67,6 +67,14 @@ class Mole extends Component {
         if(this.props.dead || this.props.finished) {
             this.stopAnimations();
         }
+
+        // If the game restarts (you were dead, now you're not) let the moles
+        // crawl back in, triggering the onLoopComplete() callback of the spriteInstance
+        if(!this.props.dead && prevProps.dead) {
+            this.state.spriteInstance.setStartAt(79);
+            this.state.spriteInstance.setEndAt(80);
+            this.state.spriteInstance.goToAndPlay(79);
+        }
     }
 
 
@@ -105,7 +113,6 @@ class Mole extends Component {
                     onPlay={() => { (!moleHit && !dead) && this.setState({ active: true }); }}
                     getInstance={ spriteSheet => { this.setState({ spriteInstance: spriteSheet }); }}
 
-
                     // Damage dealers
                     onEnterFrame={[
                         { frame: 33,
@@ -129,7 +136,7 @@ class Mole extends Component {
         const { spriteInstance } = this.state;
 
         clearTimeout(this.newTimeout);
-        spriteInstance.goToAndPause(1);
+        spriteInstance.pause();
         spriteInstance.clearInterval();
     };
 
@@ -161,9 +168,9 @@ class Mole extends Component {
         }, () => {
             // Set new start & end positions
             spriteInstance.setDirection('forward');
-            spriteInstance.setFps(moleTypes[newMole].fps);
             spriteInstance.setStartAt(moleTypes[newMole].startIndex);
             spriteInstance.setEndAt(moleTypes[newMole].endIndex);
+            spriteInstance.setFps(moleTypes[newMole].fps);
 
             // Start playing after x random seconds
             this.newTimeout = setTimeout(() => {
@@ -199,9 +206,10 @@ class Mole extends Component {
 
                 // Set sprite endpoint to end of hit animation
                 // & play the animation from its starting point
-                spriteInstance.setFps(moleHitTypes[moleIndex].fps);
-                spriteInstance.setEndAt(moleHitTypes[moleIndex].endIndex);
                 spriteInstance.goToAndPlay(moleHitTypes[moleIndex].startIndex);
+                spriteInstance.setEndAt(moleHitTypes[moleIndex].endIndex);
+                spriteInstance.setFps(moleHitTypes[moleIndex].fps);
+
             });
         } else {
             console.log('No mole present');
