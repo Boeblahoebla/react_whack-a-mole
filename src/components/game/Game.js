@@ -11,7 +11,7 @@ import { Stats } from '../stats/Stats';
 import { DeadModal } from "../modals/DeadModal";
 
 // Difficulty
-import { difficulty } from "../../utils/difficulty";
+import { difficulty } from "../../difficulty/difficulty";
 
 // Styling
 import '../../assets/css/App.css';
@@ -61,17 +61,17 @@ class Game extends Component {
         return (
             <div className="gameBg" style={{ cursor: `url(${hammer}), auto` }}>
 
-                {/* The modal for when you're dead */}
-                <DeadModal dead={ dead } resetGame={ this.resetGame }/>
-
-                {/* The modal for when you finished the game */}
-
                 {/* Score */}
                 <Stats score={ score } scoreToReach={ scoreToReach } levelMask={ levelMask }
                        health={ health } healthMask={ healthMask } level={ level + 1 } totalScore={ totalScore } />
 
                 {/* game */}
                 <div className="game row m-auto"> { moles } </div>
+
+                {/* The modal for when you're dead */}
+                <DeadModal dead={ dead } resetGame={ this.resetGame }/>
+
+                {/* The modal for when you finished the game */}
 
             </div>
         );
@@ -97,7 +97,7 @@ class Game extends Component {
             const newLevel = level + 1;
             newScore = 0;
 
-            // Update the score params, health & level progression
+            // Update the score params, 100% health & level progression
             this.setState({
                 score: newScore,
                 levelMask: 100,
@@ -149,13 +149,7 @@ class Game extends Component {
     // Method to reset the game
     resetGame = () => {
         this.setState({
-            score: 0,
-            totalScore: 0,
-            levelMask: 100,
-            health: 100,
-            level: 0,
-            finished: false,
-            dead: false
+            score: 0, totalScore: 0, levelMask: 100, health: 100, level: 0, finished: false, dead: false
         })
     }
 }

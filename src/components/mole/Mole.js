@@ -113,16 +113,16 @@ class Mole extends Component {
                     onPlay={() => { (!moleHit && !dead) && this.setState({ active: true }); }}
                     getInstance={ spriteSheet => { this.setState({ spriteInstance: spriteSheet }); }}
 
-                    // Damage dealers
+                    // Damage dealers and/or mole deactivators
                     onEnterFrame={[
-                        { frame: 33,
-                            callback: (() => { this.dealDamage(damAttack2, false) }) },
-                        { frame: 78,
-                            callback: (() => { this.dealDamage(0, true); phase.play() }) },
                         { frame: 30,
                             callback: (() => { this.dealDamage(damAttack1, false); scratch.play(); }) },
+                        { frame: 33,
+                            callback: (() => { this.dealDamage(damAttack2, false) }) },
                         { frame: 53,
                             callback: (() => { this.dealDamage(damageBomber, true); explosion.play() }) },
+                        { frame: 78,
+                            callback: (() => { this.dealDamage(0, true); phase.play() }) },
                     ]}
                 />
             </div>

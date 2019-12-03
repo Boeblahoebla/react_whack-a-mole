@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54fe9048-7abe-4735-9274-9f7ce71c0da6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Al_Ingenomen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/game/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/DeadModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/DeadModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mole/Mole.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mole/Mole.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/welcome/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/welcome/Welcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/difficulty.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/difficulty/difficulty.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,14 +21,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/modals/DeadModal.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="46" column="77" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
+            <state relative-caret-position="204">
+              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#44#95#0" expanded="true" />
+                <element signature="e#44#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -36,11 +37,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/game/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="151" column="21" lean-forward="true" selection-start-line="151" selection-start-column="21" selection-end-line="151" selection-end-column="21" />
+            <state relative-caret-position="2176">
+              <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#44#85#0" expanded="true" />
+                <element signature="e#378#431#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,10 +49,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/mole/Mole.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="132" column="60" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
+            <state relative-caret-position="2125">
+              <caret line="126" column="18" lean-forward="true" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="e#44#85#0" expanded="true" />
                 <element signature="e#227#296#0" expanded="true" />
               </folding>
@@ -63,20 +62,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/css/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="186" column="35" lean-forward="true" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
+            <state relative-caret-position="3315">
+              <caret line="195" selection-start-line="195" selection-end-line="195" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/welcome/Welcome.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="385">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#44#70#0" expanded="true" />
+                <element signature="e#44#85#0" expanded="true" />
+                <element signature="e#168#199#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,6 +101,7 @@
       <find>score</find>
       <find>time</find>
       <find>Timeout</find>
+      <find>play()</find>
     </findStrings>
     <replaceStrings>
       <replace>healer</replace>
@@ -123,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/assets/js/images.js" />
         <option value="$PROJECT_DIR$/src/components/MoleBackup.js" />
         <option value="$PROJECT_DIR$/src/components/SpriteSheet.js" />
@@ -147,15 +147,17 @@
         <option value="$PROJECT_DIR$/src/components/stats/Stat.js" />
         <option value="$PROJECT_DIR$/src/components/Game/Game.js" />
         <option value="$PROJECT_DIR$/src/components/welcome.js" />
-        <option value="$PROJECT_DIR$/src/components/App.js" />
         <option value="$PROJECT_DIR$/node_modules/react-responsive-spritesheet/src/Spritesheet.js" />
         <option value="$PROJECT_DIR$/src/utils/Spritesheet.js" />
-        <option value="$PROJECT_DIR$/src/3dpartylibs/Spritesheet.js" />
-        <option value="$PROJECT_DIR$/src/components/game/Game.js" />
         <option value="$PROJECT_DIR$/src/components/modals/DeadModal.js" />
         <option value="$PROJECT_DIR$/src/assets/css/App.css" />
-        <option value="$PROJECT_DIR$/src/components/mole/Mole.js" />
         <option value="$PROJECT_DIR$/src/components/welcome/Welcome.js" />
+        <option value="$PROJECT_DIR$/src/3dpartylibs/Spritesheet.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/components/App.js" />
+        <option value="$PROJECT_DIR$/src/utils/playSounds.js" />
+        <option value="$PROJECT_DIR$/src/components/game/Game.js" />
+        <option value="$PROJECT_DIR$/src/components/mole/Mole.js" />
       </list>
     </option>
   </component>
@@ -180,31 +182,7 @@
             <path>
               <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
               <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
-              <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
-              <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="3dpartylibs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
-              <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
-              <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
@@ -238,13 +216,14 @@
               <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="welcome" type="462c0819:PsiDirectoryNode" />
+              <item name="stats" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="holy_wacka_moly" type="b2602c69:ProjectViewProjectNode" />
               <item name="holy_wacka_moly" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="welcome" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -267,19 +246,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\difficulty" />
+      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\3dpartylibs" />
+      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\components\welcome" />
+      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src" />
+      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\utils\" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\assets\font" />
       <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\assignment" />
       <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\assets\audio" />
       <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\assets\img" />
       <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\3dpartylibs" />
-      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\components\welcome" />
-      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src" />
-      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\utils\" />
-      <recent name="C:\Users\Al Ingenomen\Documents\Projects\syntra\react\holy_wacka_moly\src\assets\difficulty" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -321,7 +300,8 @@
       <workItem from="1575248980427" duration="2657000" />
       <workItem from="1575287902964" duration="25489000" />
       <workItem from="1575335665488" duration="2941000" />
-      <workItem from="1575371994264" duration="3521000" />
+      <workItem from="1575371994264" duration="5933000" />
+      <workItem from="1575407517098" duration="4010000" />
     </task>
     <task id="LOCAL-00001" summary="StatBars (health and score) &amp; StatAnnotations are now generated using their own component.">
       <created>1575235978233</created>
@@ -372,17 +352,31 @@
       <option name="project" value="LOCAL" />
       <updated>1575372144310</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="The game can now be decently reset. Changed the welcome text a bit &amp; added some styling">
+      <created>1575404856028</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575404856028</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Annotated Spritesheet.js a bit further &amp; cleared some typo's... Also eliminated some warnings regarding unused &amp; redundant variables.">
+      <created>1575405526425</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575405526425</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196355000" />
+    <option name="totallyTimeSpent" value="202777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19898605" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19898605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -396,8 +390,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32950193" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50190115" side_tool="true" weight="0.27713922" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49809885" visible="true" weight="0.27458492" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49809885" visible="true" weight="0.22988506" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32950193" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -414,7 +408,10 @@
     <MESSAGE value="Eliminated warnings, changed the sound effects of whacking a mole &amp; fixed prop types for the StatText component" />
     <MESSAGE value="The game can now be reset when dead" />
     <MESSAGE value="Resetting the game dropped (for now) due to bugs. Added a welcome screen &amp; React router to navigate through the app... Added some css rules &amp; imported the source code for the spriteSheet instance instead of the package to look for possibilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resetting the game dropped (for now) due to bugs. Added a welcome screen &amp; React router to navigate through the app... Added some css rules &amp; imported the source code for the spriteSheet instance instead of the package to look for possibilities" />
+    <MESSAGE value="The game can now be decently reset. Changed the welcome text a bit &amp; added some styling" />
+    <MESSAGE value="Annotated Spritesheet.js a bit further &amp; cleared some typo's" />
+    <MESSAGE value="Annotated Spritesheet.js a bit further &amp; cleared some typo's... Also eliminated some warnings regarding unused &amp; redundant variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Annotated Spritesheet.js a bit further &amp; cleared some typo's... Also eliminated some warnings regarding unused &amp; redundant variables." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Counter.js" />
@@ -457,17 +454,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/spriteSheet.js" />
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#23#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -493,7 +479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/difficulty.js">
+    <entry file="file://$PROJECT_DIR$/src/difficulty/difficulty.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
@@ -548,16 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/3dpartylibs/Spritesheet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/stats/StatBar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -569,31 +545,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#44#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/stats/Stat.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3dpartylibs/Spritesheet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#44#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modals/DeadModal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="782">
           <caret line="46" column="77" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -602,10 +573,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/game/Game.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/css/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="151" column="21" lean-forward="true" selection-start-line="151" selection-start-column="21" selection-end-line="151" selection-end-column="21" />
+        <state relative-caret-position="3315">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/welcome/Welcome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#44#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Mole.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1496">
+          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#44#85#0" expanded="true" />
@@ -613,29 +602,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/playSounds.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/mole/Mole.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="132" column="60" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
+        <state relative-caret-position="2125">
+          <caret line="126" column="18" lean-forward="true" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
             <element signature="e#44#85#0" expanded="true" />
             <element signature="e#227#296#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/App.css">
+    <entry file="file://$PROJECT_DIR$/src/components/game/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="186" column="35" lean-forward="true" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
+        <state relative-caret-position="2176">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="e#378#431#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/welcome/Welcome.js">
+    <entry file="file://$PROJECT_DIR$/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="385">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#44#85#0" expanded="true" />
+            <element signature="e#168#199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#44#70#0" expanded="true" />
