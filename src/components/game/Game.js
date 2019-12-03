@@ -23,8 +23,8 @@ import whistle from '../../assets/audio/whistle.mp3';
 import cheerzShort from '../../assets/audio/cheerz-short.mp3';
 
 
-// game component
-////////////////
+// Game component
+/////////////////
 
 class Game extends Component {
 

@@ -1,13 +1,18 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Dit is de broncode voor de NPM package "react-resonsive-spritesheet                            //
-// https://www.npmjs.com/package/react-responsive-spritesheet                                     //
+// https://www.npmjs.com/package/react-responsive-spritesheet (versie 2.1.2.)                     //
 // Auteur: https://www.npmjs.com/~danilosetra                                                     //
 //                                                                                                //
 // Om het Whackamole project volledig met animaties te doen werken heb ik deze library gebruikt.  //
 // Die bevatte daarentegen geen mogelijkheid om de bestaande intervals te clearen met             //
 // setState warnings op een unmounted component tot gevolg.                                       //
 //                                                                                                //
-// Ik heb deze broncode dus iets moeten aanvullen om die warnings te elimineren                   //
+// Ik heb in plaats van de NPM package te gebruiken die broncode moeten binnenhalen en            //
+// die functionaliteit toevoegen en de library op deze manier importeren.                         //
+//                                                                                                //
+// De zelf toegevoegde fucntionaliteit vind je geannoteerd terug dmv comments.                    //
+// Hopelijk kan je hiermee akkoord gaan...                                                        //
+//                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react';
@@ -17,7 +22,17 @@ class Spritesheet extends React.Component {
     constructor(props) {
         super(props);
         this.id = 'react-responsive-spritesheet--' + Math.random().toString(36).substring(7);
-        this.spriteEl = this.spriteElContainer = this.spriteElMove = this.imageSprite = this.cols = this.rows = this.playerTimeOut = null;
+
+        //////////////////////////////////////////////////
+        // Zelf "this.playerTimeout = null" toegevoegd //
+        ////////////////////////////////////////////////
+
+        //
+        this.playerTimeOut = null;
+        this.intervalSprite = null;
+        //
+
+        this.spriteEl = this.spriteElContainer = this.spriteElMove = this.imageSprite = this.cols = this.rows = null
         this.intervalSprite = false;
         this.startAt = this.props.startAt ? this.setStartAt(this.props.startAt) : 0;
         this.endAt = this.setEndAt(this.props.endAt);
@@ -129,26 +144,50 @@ class Spritesheet extends React.Component {
 
     play(withTimeout = false, setNewInterval = false) {
         if (!this.isPlaying) {
+
+            ////////////////////////////////////////////////
+            // De setTimeout functie heb ik aan de       //
+            // variabele "this.playerTimeout" gekoppeld //
+            /////////////////////////////////////////////
+
+            //
             this.playerTimeOut = setTimeout(() => {
                 if(this.props.onPlay) this.props.onPlay(this.setInstance());
                 this.setIntervalPlayFunctions();
                 this.isPlaying = true;
+
             }, withTimeout ? (this.props.timeout ? this.props.timeout : 0) : 0);
+            //
         }
     }
 
+    /////////////////////////////////////////////////
+    // Ik heb een functie aangemaakt om de reeds  //
+    // gestarte timeout & intervals te clearen   //
+    //////////////////////////////////////////////
+
+    //
     clearSpriteInterval(){
         clearInterval(this.intervalSprite);
         clearTimeout(this.playerTimeOut);
     }
+    //
 
     setIntervalPlayFunctions(){
         if(this.intervalSprite) clearInterval(this.intervalSprite);
+
+        ////////////////////////////////////////////////////
+        // De setInterval functie heb ik aan de variabele //
+        // "this.intervalSprite" gekoppeld                //
+        ////////////////////////////////////////////////////
+
+        //
         this.intervalSprite = setInterval(() => {
             if (this.isPlaying) {
                 this.moveImage();
             }
         }, 1000 / this.fps);
+        //
     }
 
     moveImage(play = true) {
@@ -277,7 +316,20 @@ class Spritesheet extends React.Component {
             setFps: this.setFps.bind(this),
             setDirection: this.setDirection.bind(this),
             getInfo: this.getInfo.bind(this),
+
+            ////////////////////////////////////////////////////////////////
+            // De zelf aangemaakte functie heb ik exposed naar buiten toe //
+            // zodat die kan gebruikt worden in het Mole component        //
+            //                                                            //
+            // De call vind je terug in stopAnimations() en wordt         //
+            // opgeroepen in de LCMs                                      //
+            // .. ComponentDidUpdate()                                    //
+            // .. ComponentWillUnmount()                                  //
+            ////////////////////////////////////////////////////////////////
+
+            //
             clearInterval: this.clearSpriteInterval.bind(this)
+            //
         };
     }
 

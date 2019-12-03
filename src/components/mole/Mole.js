@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import UIfx from 'uifx';
 
 // Component
-// import Spritesheet from 'react-responsive-spritesheet';
 import Spritesheet from '../../3dpartylibs/Spritesheet'
 
 // Media
@@ -22,7 +21,7 @@ import phase from '../../assets/audio/phase.mp3';
 
 
 // Mole component
-////////////////
+/////////////////
 
 class Mole extends Component {
 
@@ -103,7 +102,7 @@ class Mole extends Component {
                     onLoopComplete={ () => { this.refreshMole() }}
                     onClick={() => { this.triggerMoleHit() }}
                     onEachFrame={ spriteSheet => { dead && spriteSheet.pause(); }}
-                    // onPlay={() => { (!moleHit && !dead) && this.setState({ active: true }); }}
+                    onPlay={() => { (!moleHit && !dead) && this.setState({ active: true }); }}
                     getInstance={ spriteSheet => { this.setState({ spriteInstance: spriteSheet }); }}
 
 

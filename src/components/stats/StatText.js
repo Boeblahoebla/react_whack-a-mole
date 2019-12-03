@@ -6,8 +6,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-// Stat annotation component
-////////////////////////////
+// StatText component
+/////////////////////
 
 export const StatText = ({ position, content }) => {
     return (

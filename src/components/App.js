@@ -20,8 +20,8 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <Route exact path="/" component={Welcome} />
-                <Route exact path="/game" component={Game} />
+                <Route exact path="/" component={ Welcome } />
+                <Route exact path="/game" component={ Game } />
             </Router>
         );
     }
