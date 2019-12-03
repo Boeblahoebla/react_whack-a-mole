@@ -1,14 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Dit is de broncode voor de NPM package "react-resonsive-spritesheet                            //
-// https://www.npmjs.com/package/react-responsive-spritesheet (versie 2.1.2.)                     //
+// Dit is de broncode voor de NPM package "react-responsive-spritesheet (versie 2.1.2.)           //
+// https://www.npmjs.com/package/react-responsive-spritesheet                                     //
 // Auteur: https://www.npmjs.com/~danilosetra                                                     //
 //                                                                                                //
 // Om het Whackamole project volledig met animaties te doen werken heb ik deze library gebruikt.  //
 // Die bevatte daarentegen geen mogelijkheid om de bestaande intervals te clearen met             //
 // setState warnings op een unmounted component tot gevolg.                                       //
 //                                                                                                //
-// Ik heb in plaats van de NPM package te gebruiken die broncode moeten binnenhalen en            //
-// die functionaliteit toevoegen en de library op deze manier importeren.                         //
+// Ik heb in plaats van de NPM package te gebruiken die broncode moeten binnenhalen om            //
+// die functionaliteit toe te voegen. Ik heb de library dus op deze manier moeten importeren.     //
 //                                                                                                //
 // De zelf toegevoegde fucntionaliteit vind je geannoteerd terug dmv comments.                    //
 // Hopelijk kan je hiermee akkoord gaan...                                                        //
@@ -23,16 +23,17 @@ class Spritesheet extends React.Component {
         super(props);
         this.id = 'react-responsive-spritesheet--' + Math.random().toString(36).substring(7);
 
-        //////////////////////////////////////////////////
-        // Zelf "this.playerTimeout = null" toegevoegd //
-        ////////////////////////////////////////////////
+        ////////////////////////////////////////////
+        // Timeout & interval toegevoegd om die  //
+        // uiteindelijk te kunnen clearen       //
+        /////////////////////////////////////////
 
         //
         this.playerTimeOut = null;
         this.intervalSprite = null;
         //
 
-        this.spriteEl = this.spriteElContainer = this.spriteElMove = this.imageSprite = this.cols = this.rows = null
+        this.spriteEl = this.spriteElContainer = this.spriteElMove = this.imageSprite = this.cols = null;
         this.intervalSprite = false;
         this.startAt = this.props.startAt ? this.setStartAt(this.props.startAt) : 0;
         this.endAt = this.setEndAt(this.props.endAt);
@@ -72,7 +73,7 @@ class Spritesheet extends React.Component {
             backgroundSize: containerBackgroundSize,
             backgroundRepeat: containerBackgroundRepeat,
             backgroundPosition: containerBackgroundPosition
-        }
+        };
 
         let moveStyles = {
             overflow: 'hidden',
@@ -82,11 +83,11 @@ class Spritesheet extends React.Component {
             width: `${this.props.widthFrame}px`,
             height: `${this.props.heightFrame}px`,
             transformOrigin: '0 50%'
-        }
+        };
 
         let elMove = React.createElement('div', { className: 'react-responsive-spritesheet-container__move', style: moveStyles });
         let elContainer = React.createElement('div', { className: 'react-responsive-spritesheet-container', style: containerStyles }, elMove);
-        let elSprite = React.createElement('div', {
+        return React.createElement('div', {
             className: `react-responsive-spritesheet ${this.id} ${this.props.className ? this.props.className : ''}`,
             style: this.props.style,
             onClick: this.props.onClick ? this.props.onClick.bind(this.setInstance(), this) : null,
@@ -100,7 +101,6 @@ class Spritesheet extends React.Component {
             onMouseUp: this.props.onMouseUp ? this.props.onMouseUp.bind(this.setInstance(), this) : null
         }, elContainer);
 
-        return elSprite;
     }
 
     init() {
@@ -142,7 +142,7 @@ class Spritesheet extends React.Component {
         if(callback && this.props.onResize) this.props.onResize(this.setInstance());
     }
 
-    play(withTimeout = false, setNewInterval = false) {
+    play(withTimeout = false) {
         if (!this.isPlaying) {
 
             ////////////////////////////////////////////////
@@ -196,7 +196,7 @@ class Spritesheet extends React.Component {
         this.spriteElMove.style.backgroundPosition = `-${this.props.widthFrame * currentCol}px -${this.props.heightFrame * currentRow}px`;
 
         if(this.props.onEnterFrame){
-            this.props.onEnterFrame.forEach((frameAction, i) => {
+            this.props.onEnterFrame.forEach((frameAction) => {
                 if(frameAction.frame === this.frame && frameAction.callback){
                     frameAction.callback();
                 }
