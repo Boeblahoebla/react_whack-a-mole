@@ -1,6 +1,12 @@
+@font-face {
+    font-family:"whackamole";
+    src: url("../font/HelloWhackAMole.ttf") format("truetype");
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: "whackamole", sans-serif;
 }
 
 .gameBg {
@@ -54,6 +60,7 @@
 h5, h4 {
     color: black;
     margin: 0;
+    font-weight: 600;
 }
 
 .healthAmount {
@@ -69,6 +76,14 @@ h5, h4 {
 .statAnnotation {
     width: 5em;
     align-self: flex-end;
+}
+
+.statLevel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .alignLeft {
@@ -110,4 +125,61 @@ p.lead {
     width: 128px;
     height: 103px;
 }
+
+.welcomeScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameTitle {
+    text-align: center;
+    font-size: 5em;
+    font-weight: 600;
+}
+
+.welcomeText {
+    width: 70%;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.welcomeText--have-fun {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.welcomeButtons {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-whack {
+    background-color: rgb(13, 196, 88);
+    border: 2px solid rgb(115, 82, 73);
+    font-size: 1.5em;
+    border-radius: 8px;
+    width: 180px;
+}
+
+.btn-howtoplay {
+    background-color: rgb(178, 145, 128);
+    border: 2px solid rgb(115, 82, 73);
+    font-size: 1.5em;
+    border-radius: 8px;
+    width: 180px;
+}
+
+.deadModalHead {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.deadModalBody {
+    font-size: 1.75em;
+}
+
 

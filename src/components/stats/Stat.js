@@ -23,7 +23,7 @@ export const Stat = ({ type, statLeft, statRight, statMiddleTop, statMiddleBotto
     if(type === "score") {
         content = (
             <div className="scoreLevel">
-                <p className="lead">{ statMiddleTop }</p>
+                <div className="statLevel">{ statMiddleTop }</div>
                 <h4>{ statMiddleBottom }</h4>
             </div>
         )

@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 import UIfx from 'uifx';
 
 // Component
-import Spritesheet from 'react-responsive-spritesheet';
+// import Spritesheet from 'react-responsive-spritesheet';
+import Spritesheet from '../../3dpartylibs/Spritesheet'
 
 // Media
 import gameSprites from '../../assets/img/spritesheet_candidate.png';
@@ -28,6 +29,8 @@ class Mole extends Component {
     // Constructor for the component
     constructor(props) {
         super(props);
+
+        this.newTimeout = null;
 
         // Component state
         this.state = {
@@ -59,17 +62,19 @@ class Mole extends Component {
     };
 
 
-    // Triggered every time the component updates
+    // When the component updates with props "dead" or "finished" to true,
+    // stop the animations & clear any intervals already set in motion
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // When dead, deactivate the mole & stop the animations
-        if ((!this.props.dead && prevProps.dead) || (this.props.finished && !prevProps.finished)) {
-            console.log('entered condition in component did update');
-            this.state.spriteInstance.pause();
-            this.state.spriteInstance.setStartAt(80);
-            this.state.spriteInstance.setEndAt(0);
-            this.state.spriteInstance.setDirection('rewind');
-            this.state.spriteInstance.goToAndPlay(0);
+        if(this.props.dead || this.props.finished) {
+            this.stopAnimations();
         }
+    }
+
+
+    // Before unMounting stop the animations &
+    // clear any intervals already set in motion
+    componentWillUnmount() {
+        this.stopAnimations();
     }
 
     render() {
@@ -96,10 +101,10 @@ class Mole extends Component {
 
                     // Action handlers
                     onLoopComplete={ () => { this.refreshMole() }}
-                    onClick={() => { !dead && this.triggerMoleHit() }}
+                    onClick={() => { this.triggerMoleHit() }}
                     onEachFrame={ spriteSheet => { dead && spriteSheet.pause(); }}
-                    onPlay={() => { !moleHit && this.setState({ active: true }); }}
-                    onInit={ spriteSheet => { this.setState({ spriteInstance: spriteSheet }); }}
+                    // onPlay={() => { (!moleHit && !dead) && this.setState({ active: true }); }}
+                    getInstance={ spriteSheet => { this.setState({ spriteInstance: spriteSheet }); }}
 
 
                     // Damage dealers
@@ -117,6 +122,17 @@ class Mole extends Component {
             </div>
         );
     }
+
+
+    // Method to stop the animations & clear intervals already set in motion
+    stopAnimations = () => {
+        // Fetch spriteInstance from the state
+        const { spriteInstance } = this.state;
+
+        clearTimeout(this.newTimeout);
+        spriteInstance.goToAndPause(1);
+        spriteInstance.clearInterval();
+    };
 
 
     // Method to deal damage and/or deactivate the mole if needed
@@ -151,7 +167,7 @@ class Mole extends Component {
             spriteInstance.setEndAt(moleTypes[newMole].endIndex);
 
             // Start playing after x random seconds
-            setTimeout(() => {
+            this.newTimeout = setTimeout(() => {
                 spriteInstance.play()
             }, this.generateRandomTimeout());
         });
@@ -227,7 +243,7 @@ class Mole extends Component {
 
 
     // Method to generate a random timeout
-    generateRandomTimeout = () => Math.floor(Math.random() * 60000);
+    generateRandomTimeout = () => Math.floor(Math.random() * 35000);
 }
 
 
@@ -237,6 +253,8 @@ Mole.propTypes = {
     incScore: PropTypes.func.isRequired,
     dealDamage: PropTypes.func.isRequired,
     difficulty: PropTypes.object.isRequired,
+    dead: PropTypes.bool.isRequired,
+    finished: PropTypes.bool.isRequired
 };
 
 
