@@ -28,7 +28,7 @@ export const DeadModal = ({ dead, resetGame }) => {
 
             {/* Modal Header */}
             <ModalHeader toggle={() => setOpen(!open)} close={closeButton} className="deadModalHead">
-                <h3>You are Dead</h3>
+                <span className="modalHeader">You are Dead</span>
             </ModalHeader>
 
             {/* Modal body */}

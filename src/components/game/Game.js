@@ -50,7 +50,7 @@ class Game extends Component {
         // Set game difficulty according to current level
         const gameDifficulty = difficulty[level];
 
-        // Generate 12 howTo to whack
+        // Generate 12 moles to whack
         const moles = [];
         for(let i = 0; i < 12; i++) {
             moles.push(
