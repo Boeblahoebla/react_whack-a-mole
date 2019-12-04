@@ -2,14 +2,22 @@
 //////////
 
 // Base dependencies
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// Components
+import {  HowToPlayModal} from "../modals/howToPlay/HowToPlayModal";
 
 
 // Welcome component
 ////////////////////
 
 export const Welcome = () => {
+
+    // State handling
+    const [howToModal, setHowToModal] = useState(false);
+
+
     return (
         <div className="gameBg welcomeScreen">
             <h1 className="gameTitle mb-4">Holy Whack a Moley</h1>
@@ -25,8 +33,10 @@ export const Welcome = () => {
 
             <div className="welcomeButtons mt-4">
                 <Link className="btn btn-whack" to="/game">Start Whacking</Link>
-                <button className="btn btn-howtoplay">How to play</button>
+                <button className="btn btn-howtoplay" onClick={() => setHowToModal(!howToModal)}>How to play</button>
             </div>
+
+            <HowToPlayModal howToPlayStatus={howToModal}/>
         </div>
     );
 };

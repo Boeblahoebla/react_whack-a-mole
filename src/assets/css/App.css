@@ -192,4 +192,7 @@ p.lead {
     width: 150px;
 }
 
-
+.modalHeader {
+    font-size: 1.5em;
+    font-weight: 500;
+}

@@ -8,7 +8,7 @@ import UIfx from 'uifx';
 // Components
 import Mole from '../mole/Mole';
 import { Stats } from '../stats/Stats';
-import { DeadModal } from "../modals/DeadModal";
+import { DeadModal } from "../modals/dead/DeadModal";
 
 // Difficulty
 import { difficulty } from "../../difficulty/difficulty";
@@ -50,7 +50,7 @@ class Game extends Component {
         // Set game difficulty according to current level
         const gameDifficulty = difficulty[level];
 
-        // Generate 12 moles to whack
+        // Generate 12 howTo to whack
         const moles = [];
         for(let i = 0; i < 12; i++) {
             moles.push(
