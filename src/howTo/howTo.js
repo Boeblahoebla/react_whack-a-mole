@@ -7,8 +7,9 @@ import attacker from "../assets/img/moles/attacker.png";
 import bomber from "../assets/img/moles/bomber.png";
 import healer from "../assets/img/moles/healer.png";
 
-// Export
-/////////
+
+// Exports
+//////////
 
 export const howToMoles = {
     benign: {
@@ -54,7 +55,7 @@ export const howToSections = {
         text: "Each level has its own difficulty settings. The framerate of the animations are calculated using a\n" +
             "random number between minimum speed & maximum speed for a given mole per (difficulty) level\n" +
             "The higher the level, the more difficult the levels gets. When the levels progress the following\n" +
-            "attributes can change...",
+            "attributes change...",
         list: ["Damage done", "Minimum speed of the mole", "Maximum speed of the mole",
             "Decrease in healers & benign moles", "Increase in damage dealing moles"]
     }
