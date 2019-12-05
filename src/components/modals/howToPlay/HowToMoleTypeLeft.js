@@ -3,6 +3,7 @@
 
 // Base dependencies
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 // HowToMoleTypeLeft component
@@ -22,11 +23,19 @@ export const HowToMoleTypeLeft = ({ moleType, moleImage, moleText }) => {
                 </div>
 
                 {/* Mole text */}
-                <div className="moleTypeText w-70 text-align-right pl-4">
+                <div className="moleTypeText w-70 text-align-right pl-2">
                     { moleText }
                 </div>
 
             </div>
         </div>
     );
+};
+
+
+// Prop types for the component
+HowToMoleTypeLeft.propTypes = {
+    moleType: PropTypes.string.isRequired,
+    moleImage: PropTypes.string.isRequired,
+    moleText: PropTypes.string.isRequired,
 };

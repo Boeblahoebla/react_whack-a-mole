@@ -2,6 +2,7 @@
 //////////
 
 import React from 'react';
+import PropTypes from "prop-types";
 
 
 // HowToMoleTypeRight component
@@ -16,7 +17,7 @@ export const HowToMoleTypeRight = ({ moleType, moleImage, moleText }) => {
             <div className="howToMoleTypeLeft d-flex">
 
                 {/* Mole Text */}
-                <div className="moleTypeText w-70 text-align-right pr-4">
+                <div className="moleTypeText w-70 text-align-right p2-4">
                     { moleText }
                 </div>
 
@@ -28,4 +29,12 @@ export const HowToMoleTypeRight = ({ moleType, moleImage, moleText }) => {
             </div>
         </div>
     );
+};
+
+
+// Prop types for the component
+HowToMoleTypeRight.propTypes = {
+    moleType: PropTypes.string.isRequired,
+    moleImage: PropTypes.string.isRequired,
+    moleText: PropTypes.string.isRequired,
 };

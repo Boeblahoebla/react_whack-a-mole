@@ -34,10 +34,10 @@ export const Welcome = () => {
 
             <div className="welcomeButtons mt-4">
                 <Link className="btn btn-whack" to="/game">Start Whacking</Link>
-                <button className="btn btn-howtoplay" onClick={() => setHowToModal(!howToModal)}>How to play</button>
+                <button className="btn btn-howtoplay" onClick={ () => setHowToModal(!howToModal) }>How to play</button>
             </div>
 
-            <HowToPlayModal howToPlayStatus={howToModal}/>
+            <HowToPlayModal howToPlayStatus={ howToModal } setHowToPlayStatus={ () => setHowToModal(!howToModal) }/>
         </div>
     );
 };

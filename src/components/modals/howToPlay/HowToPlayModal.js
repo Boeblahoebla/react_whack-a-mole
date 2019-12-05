@@ -2,8 +2,9 @@
 //////////
 
 // Base dependencies
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 // Components
 import { HowToMoleTypeLeft } from "./HowToMoleTypeLeft";
@@ -17,50 +18,67 @@ import { howToMoles, howToSections } from "../../../howTo/howTo";
 // HowToPlayModal component
 ///////////////////////////
 
-export const HowToPlayModal = ({ howToPlayStatus }) => {
+export const HowToPlayModal = ({ howToPlayStatus, setHowToPlayStatus }) => {
 
     // Fetch the relevant data from howToMoles & howToSections
     const { attacker, benign, bomber, healer } = howToMoles;
     const { basics, types, difficulty } = howToSections;
 
-    // State handling
-    const [ open, setOpen ] = useState(false);
-
     // Open the modal when the player is dead
     useEffect(() => {
-        setOpen(howToPlayStatus)
     }, [howToPlayStatus]);
 
     return (
-        <Modal isOpen={open} toggle={() => setOpen(!open)}>
+        <Modal isOpen={howToPlayStatus} toggle={setHowToPlayStatus} style={{ maxWidth: '50%' }}>
 
             {/* Modal Header */}
-            <ModalHeader toggle={() => setOpen(!open)} className="deadModalHead">
+            <ModalHeader toggle={setHowToPlayStatus} className="deadModalHead">
                 <span className="modalHeader">How to play</span>
             </ModalHeader>
 
             {/* Modal body */}
             <ModalBody >
                 {/* Basics section */}
-                <HowToSection title={basics.title} text={basics.text} />
+                <HowToSection title={ basics.title } text={ basics.text } />
 
                 {/* Moles section */}
-                <HowToSection title={types.title} text={types.text} />
+                <HowToSection title={ types.title } text={ types.text } />
 
-                <HowToMoleTypeLeft moleType={benign.name} moleImage={benign.img} moleText={benign.desc} />
-                <HowToMoleTypeRight moleType={attacker.name} moleImage={attacker.img} moleText={attacker.desc} />
-                <HowToMoleTypeLeft moleType={bomber.name} moleImage={bomber.img} moleText={bomber.desc} />
-                <HowToMoleTypeRight moleType={healer.name} moleImage={healer.img} moleText={healer.desc} />
+                <div className="howToMoleTypes d-flex">
+                    <div className="howToMoleTypesLeft">
+                        <HowToMoleTypeLeft
+                            moleType={ benign.name } moleImage={ benign.img } moleText={ benign.desc } />
+                        <HowToMoleTypeRight
+                            moleType={ attacker.name } moleImage={ attacker.img } moleText={ attacker.desc } />
+                    </div>
+                    <div className="howToMoleTypesRight">
+                        <HowToMoleTypeLeft
+                            moleType={ bomber.name } moleImage={ bomber.img } moleText={ bomber.desc } />
+                        <HowToMoleTypeRight
+                            moleType={ healer.name } moleImage={ healer.img } moleText={ healer.desc } />
+                    </div>
+                </div>
+
 
                 {/* Difficulty section */}
-                <HowToSection title={difficulty.title} text={difficulty.text} list={difficulty.list} />
+                <HowToSection
+                    title={ difficulty.title } text={ difficulty.text } list={ difficulty.list } />
 
             </ModalBody>
 
             {/* Modal Footer */}
             <ModalFooter className="deadModalButtons">
-                <button onClick={() => setOpen(!open)} className="btn btn-secondary"> Go back </button>
+                <button onClick={setHowToPlayStatus} className="btn btn-secondary">
+                    Go back
+                </button>
             </ModalFooter>
         </Modal>
     );
+};
+
+
+// Prop types for the component
+HowToPlayModal.propTypes = {
+    howToPlayStatus: PropTypes.bool.isRequired,
+    setHowToPlayStatus: PropTypes.func.isRequired
 };

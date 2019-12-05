@@ -182,14 +182,13 @@ class Mole extends Component {
 
     // Method to trigger the mole hit animation
     triggerMoleHit = () => {
-
-        // Fetch spriteInstance, moleHitTypes, moleIndex & sound effects from the state
-        const { spriteInstance, moleHitTypes, moleIndex, punch1, punch2, punch3, powerUp } = this.state;
-
-        // Fetch stat changers from the props
-        const { incScore, incHealth } = this.props;
-
         if (this.state.active) {
+            // Fetch spriteInstance, moleHitTypes, moleIndex & sound effects from the state
+            const { spriteInstance, moleHitTypes, moleIndex, punch1, punch2, punch3, powerUp } = this.state;
+
+            // Fetch stat changers from the props
+            const { incScore, incHealth } = this.props;
+
             // Pause the spriteSheet loop
             spriteInstance.pause();
 
@@ -211,8 +210,6 @@ class Mole extends Component {
                 spriteInstance.setFps(moleHitTypes[moleIndex].fps);
 
             });
-        } else {
-            console.log('No mole present');
         }
     };
 

@@ -196,3 +196,21 @@ p.lead {
     font-size: 1.5em;
     font-weight: 500;
 }
+
+.howToMoleTypes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.howToMoleTypesLeft, .howToMoleTypesRight {
+    width: 50%;
+}
+
+.howToMoleTypesLeft {
+    padding-right: 1.5em;
+}
+
+.howToMoleTypesRight {
+    padding-left: 1.5em;
+}
