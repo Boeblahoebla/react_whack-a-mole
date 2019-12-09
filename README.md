@@ -9,7 +9,7 @@ Whack a mole recreated in React!
 
 ## How to play
 The game contains 12 holes. After x random seconds a mole appears. It's up to the player to whack the mole before it crawls back in.
-After scoring 1000 points, the player advances to the next level, up to a total of 26. Some moles deal damage others have the ability to heal the player, or just do nothing.
+After scoring 1000 points, the player advances to the next level, up to a total of 25. Some moles deal damage others have the ability to heal the player, or just do nothing.
 
 #### Mole types
 

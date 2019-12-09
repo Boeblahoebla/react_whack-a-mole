@@ -21,9 +21,13 @@ export const Stat = ({ type, statLeft, statRight, statMiddleTop, statMiddleBotto
     // Generate health or score content
     let content = '';
     if(type === "score") {
+
+        // Format level stats
+        statMiddleTop = parseInt(statMiddleTop) < 10 ? `0${statMiddleTop}` : statMiddleTop;
+
         content = (
             <div className="scoreLevel">
-                <div className="statLevel">{ statMiddleTop }</div>
+                <div className="statLevel text-center"><p>{ statMiddleTop }</p></div>
                 <h4>{ statMiddleBottom }</h4>
             </div>
         )

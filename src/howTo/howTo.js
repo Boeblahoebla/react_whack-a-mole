@@ -46,7 +46,7 @@ export const howToSections = {
         title: "Basics",
         text: "The game contains 12 holes. After x random seconds a mole appears. It's up to the player to\n" +
             "whack the mole before it crawls back in. After scoring 1000 points the player advances to the\n" +
-            "next level, up to a total of 26. Some moles deal damage other moles have the ability to\n" +
+            "next level, up to a total of 25. Some moles deal damage other moles have the ability to\n" +
             "heal the player, others just do nothing."
     },
     types: {
