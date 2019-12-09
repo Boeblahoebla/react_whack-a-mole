@@ -29,7 +29,7 @@ export const HowToPlayModal = ({ howToPlayStatus, setHowToPlayStatus }) => {
     }, [howToPlayStatus]);
 
     return (
-        <Modal isOpen={howToPlayStatus} toggle={setHowToPlayStatus} style={{ maxWidth: '50%' }}>
+        <Modal isOpen={howToPlayStatus} toggle={setHowToPlayStatus} style={{ maxWidth: '70%' }}>
 
             {/* Modal Header */}
             <ModalHeader toggle={setHowToPlayStatus} className="deadModalHead">
@@ -67,8 +67,8 @@ export const HowToPlayModal = ({ howToPlayStatus, setHowToPlayStatus }) => {
             </ModalBody>
 
             {/* Modal Footer */}
-            <ModalFooter className="deadModalButtons">
-                <button onClick={setHowToPlayStatus} className="btn btn-secondary">
+            <ModalFooter className="howToPlayModalButtons">
+                <button onClick={setHowToPlayStatus} className="btn btn-brown modalButton">
                     Go back
                 </button>
             </ModalFooter>

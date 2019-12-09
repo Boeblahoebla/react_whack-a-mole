@@ -20,7 +20,9 @@ import '../../assets/css/App.css';
 import hammer from '../../assets/img/WAM_Hammer.png';
 import boooooo from '../../assets/audio/boooooo.mp3';
 import whistle from '../../assets/audio/whistle.mp3';
+import cheerz from '../../assets/audio/cheerz.mp3';
 import cheerzShort from '../../assets/audio/cheerz-short.mp3';
+import {FinishedModal} from "../modals/finished/FinishedModal";
 
 
 // Game component
@@ -40,6 +42,7 @@ class Game extends Component {
         dead: false,
         boooooo: new UIfx(boooooo, { volume: 1 }),
         whistle: new UIfx(whistle, { volume: 0.3 }),
+        cheerz: new UIfx(cheerz, { volume: 0.5 }),
         cheerzShort : new UIfx(cheerzShort, { volume: 0.5 })
     };
 
@@ -72,6 +75,7 @@ class Game extends Component {
                 <DeadModal dead={ dead } resetGame={ this.resetGame }/>
 
                 {/* The modal for when you finished the game */}
+                <FinishedModal finished={ finished } />
 
             </div>
         );
@@ -84,7 +88,7 @@ class Game extends Component {
     // Method to inc the score by an amount
     incScore = scoreIncrement => {
         // Fetch score params, level & sound effects from the state
-        const { score, scoreToReach, level, totalScore, cheerzShort, whistle } = this.state;
+        const { score, scoreToReach, level, totalScore, cheerzShort, whistle, cheerz } = this.state;
 
         // Calculate the new score & the levelMask
         let newScore = score + scoreIncrement;
@@ -97,15 +101,22 @@ class Game extends Component {
             const newLevel = level + 1;
             newScore = 0;
 
-            // Update the score params, 100% health & level progression
-            this.setState({
-                score: newScore,
-                levelMask: 100,
-                level: newLevel,
-                totalScore: newTotalScore,
-                health: 100,
-            },() => { whistle.play(); cheerzShort.play() })
-            // If not, just update the score
+            if(newLevel >= difficulty.length) {
+                this.setState({
+                    score: newScore,
+                    finished: true
+                },() => { cheerz.play(); })
+            } else {
+                // Update the score params, 100% health & level progression
+                this.setState({
+                    score: newScore,
+                    levelMask: 100,
+                    level: newLevel,
+                    totalScore: newTotalScore,
+                    health: 100,
+                },() => { whistle.play(); cheerzShort.play() })
+                // If not, just update the score
+            }
         } else {
             this.setState({
                 score: newScore,
