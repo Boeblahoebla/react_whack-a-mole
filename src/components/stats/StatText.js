@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 export const StatText = ({ position, content }) => {
     return (
         <div className="statAnnotation">
-            <h5 className={ `align${ position }`}>{ content }</h5>
+            <h5 className={ `align${ position }` }>{ content }</h5>
         </div>
     );
 };

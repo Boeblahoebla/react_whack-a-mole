@@ -9,6 +9,7 @@ import UIfx from 'uifx';
 import Mole from '../mole/Mole';
 import { Stats } from '../stats/Stats';
 import { DeadModal } from "../modals/dead/DeadModal";
+import { FinishedModal } from "../modals/finished/FinishedModal";
 
 // Difficulty
 import { difficulty } from "../../difficulty/difficulty";
@@ -22,7 +23,6 @@ import boooooo from '../../assets/audio/boooooo.mp3';
 import whistle from '../../assets/audio/whistle.mp3';
 import cheerz from '../../assets/audio/cheerz.mp3';
 import cheerzShort from '../../assets/audio/cheerz-short.mp3';
-import {FinishedModal} from "../modals/finished/FinishedModal";
 
 
 // Game component

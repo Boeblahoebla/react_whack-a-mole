@@ -11,6 +11,7 @@ import healer from "../assets/img/moles/healer.png";
 // Exports
 //////////
 
+// Mole descriptions
 export const howToMoles = {
     benign: {
         name: "Benign",
@@ -38,6 +39,8 @@ export const howToMoles = {
     }
 };
 
+
+// "How to" data
 export const howToSections = {
     basics: {
         title: "Basics",

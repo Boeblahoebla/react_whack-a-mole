@@ -37,10 +37,11 @@ export const Stat = ({ type, statLeft, statRight, statMiddleTop, statMiddleBotto
     return (
         <div className="annotations">
             {/* Stat texts */}
-            <div className={`${ type }Text mb-2`}>
+            <div className={ `${ type }Text mb-2` }>
                 {/* Stat left */}
                 <StatText content={ statLeft } position="Left"/>
 
+                {/* Stat content */}
                 {content}
 
                 {/* Stat right */}

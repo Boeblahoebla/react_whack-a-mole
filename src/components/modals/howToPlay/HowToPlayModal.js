@@ -3,8 +3,10 @@
 
 // Base dependencies
 import React, { useEffect } from 'react';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
+
+// ReactStrap
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 // Components
 import { HowToMoleTypeLeft } from "./HowToMoleTypeLeft";
@@ -29,10 +31,10 @@ export const HowToPlayModal = ({ howToPlayStatus, setHowToPlayStatus }) => {
     }, [howToPlayStatus]);
 
     return (
-        <Modal isOpen={howToPlayStatus} toggle={setHowToPlayStatus} style={{ maxWidth: '70%' }}>
+        <Modal isOpen={ howToPlayStatus } toggle={ setHowToPlayStatus } style={{ maxWidth: '70%' }}>
 
             {/* Modal Header */}
-            <ModalHeader toggle={setHowToPlayStatus} className="deadModalHead">
+            <ModalHeader toggle={ setHowToPlayStatus } className="deadModalHead">
                 <span className="modalHeader">How to play</span>
             </ModalHeader>
 
@@ -68,7 +70,7 @@ export const HowToPlayModal = ({ howToPlayStatus, setHowToPlayStatus }) => {
 
             {/* Modal Footer */}
             <ModalFooter className="howToPlayModalButtons">
-                <button onClick={setHowToPlayStatus} className="btn btn-brown modalButton">
+                <button onClick={ setHowToPlayStatus } className="btn btn-brown modalButton">
                     Go back
                 </button>
             </ModalFooter>

@@ -11,8 +11,8 @@ import PropTypes from 'prop-types';
 
 export const StatBar = ({ type, style }) => {
     return (
-        <div className={`${ type } mb-4`}>
-            <div className={`${ type }Amount`} style={ style }>
+        <div className={ `${ type } mb-4` }>
+            <div className={ `${ type }Amount` } style={ style }>
                 &nbsp;
             </div>
         </div>

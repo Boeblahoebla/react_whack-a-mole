@@ -2,9 +2,11 @@
 //////////
 
 // Base dependencies
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+// ReactStrap
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 // Dead Modal
@@ -24,10 +26,10 @@ export const FinishedModal = ({ finished }) => {
     const closeButton = <span/>;
 
     return (
-        <Modal isOpen={open} toggle={() => setOpen(!open)} className="test" backdrop="static">
+        <Modal isOpen={ open } toggle={ () => setOpen(!open) } backdrop="static">
 
             {/* Modal Header */}
-            <ModalHeader toggle={() => setOpen(!open)} close={closeButton}>
+            <ModalHeader toggle={ () => setOpen(!open) } close={ closeButton }>
                 <span className="modalHeader">Congratz... You finished the game!</span>
             </ModalHeader>
 

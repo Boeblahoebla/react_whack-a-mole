@@ -23,7 +23,7 @@ export const HowToSection = ({ title, text, list }) => {
     return (
         <Fragment>
             <h4>{title}</h4>
-            <p className={`${ marginBottom }`}>{ text }</p>
+            <p className={ `${ marginBottom }` }>{ text }</p>
 
             { listContent }
         </Fragment>

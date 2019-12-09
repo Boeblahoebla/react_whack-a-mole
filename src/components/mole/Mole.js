@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import UIfx from 'uifx';
 
-// Component
+// Components
 import Spritesheet from '../../3dpartylibs/Spritesheet'
 
 // Media

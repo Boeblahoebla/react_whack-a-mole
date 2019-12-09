@@ -2,9 +2,11 @@
 //////////
 
 // Base dependencies
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+// ReactStrap
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 // Dead Modal
@@ -24,18 +26,16 @@ export const DeadModal = ({ dead, resetGame }) => {
     const closeButton = <span/>;
 
     return (
-        <Modal isOpen={open} toggle={() => setOpen(!open)} className="test" backdrop="static">
+        <Modal isOpen={ open } toggle={ () => setOpen(!open) } backdrop="static">
 
             {/* Modal Header */}
-            <ModalHeader toggle={() => setOpen(!open)} close={closeButton}>
+            <ModalHeader toggle={ () => setOpen(!open) } close={ closeButton }>
                 <span className="modalHeader">You are Dead</span>
             </ModalHeader>
 
             {/* Modal body */}
             <ModalBody>
-                <p>Sadly this is game over for you. I guess The moles were too much to
-                    handle?
-                </p>
+                <p>Sadly this is game over for you. I guess The moles were too much to handle?</p>
 
                 <p>
                     You might want to work on your reflexes. Press the button to take you back to the main menu.
@@ -47,7 +47,7 @@ export const DeadModal = ({ dead, resetGame }) => {
 
             {/* Modal Footer */}
             <ModalFooter className="deadModalButtons">
-                <button className="btn btn-green modalButton" onClick={resetGame}>
+                <button className="btn btn-green modalButton" onClick={ resetGame }>
                     Lemme Whack!
                 </button>
                 <Link to="/" className="btn btn-brown modalButton">
